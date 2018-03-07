@@ -1,27 +1,46 @@
 # NgxFizzBuzz
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+Demo of how to publish Angular component to npm
 
-## Development server
+# Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+npm install ngx-fizz-buzz
 
-## Code scaffolding
+# Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* `ng generate module modules/ngx-fizz-buzz`
+* `ng generate component modules/ngx-fizz-buzz/components/ngx-fizz-buzz`
 
-## Build
+# ng-package.json
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```
+  {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "public_api.ts"
+    }
+  }
+```
 
-## Running unit tests
+# public_api.ts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* `export * from './src/app/modules/ngx-fizzbuzz/ngx-fizzbuzz.module'`
 
-## Running end-to-end tests
+# package.json
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-package.json"
+  },
+  "private": false
+```
 
-## Further help
+# publishing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* `npm publish dist`
