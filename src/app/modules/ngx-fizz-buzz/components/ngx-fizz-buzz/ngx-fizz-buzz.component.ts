@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 
 @Component({
@@ -7,8 +7,9 @@ import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
   styleUrls: ['./ngx-fizz-buzz.component.css']
 })
 export class NgxFizzBuzzComponent implements OnInit {
+  @Output() said = new EventEmitter<string>();
+
   fg: FormGroup;
-  result: string;
 
   constructor() {}
 
@@ -23,12 +24,16 @@ export class NgxFizzBuzzComponent implements OnInit {
   }
 
   say() {
-    if (Number(this.count.value) % 3 === 0) {
-      this.result = 'Fizz';
-    } else if (Number(this.count.value) % 5 === 0) {
-      this.result = 'Buzz';
-    } else {
-      this.result = this.count.value;
+    if (this.count.value) {
+      let result = this.count.value;
+
+      if (Number(this.count.value) % 3 === 0) {
+        result = 'Fizz';
+      } else if (Number(this.count.value) % 5 === 0) {
+        result = 'Buzz';
+      }
+
+      this.said.emit(result);
     }
   }
 }

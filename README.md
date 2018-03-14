@@ -1,6 +1,6 @@
 # NgxFizzBuzz
 
-Demo of how to publish Angular component to npm
+Demo of how to publish Angular component to npm follow https://medium.com/@nikolasleblanc/building-an-angular-4-component-library-with-the-angular-cli-and-ng-packagr-53b2ade0701e
 
 # Usage
 
@@ -8,10 +8,11 @@ npm install ngx-fizz-buzz
 
 # Development
 
+* `npm install ng-packagr --save-dev`
 * `ng generate module modules/ngx-fizz-buzz`
 * `ng generate component modules/ngx-fizz-buzz/components/ngx-fizz-buzz`
 
-# ng-package.json
+# create: ng-package.json
 
 ```
   {
@@ -22,9 +23,9 @@ npm install ngx-fizz-buzz
   }
 ```
 
-# public_api.ts
+# create: public_api.ts
 
-* `export * from './src/app/modules/ngx-fizzbuzz/ngx-fizzbuzz.module'`
+* `export * from './src/app/modules/ngx-fizz-buzz/ngx-fizz-buzz.module';`
 
 # package.json
 
@@ -40,6 +41,10 @@ npm install ngx-fizz-buzz
   },
   "private": false
 ```
+
+# build
+
+* `npm run packagr`
 
 # publishing
 

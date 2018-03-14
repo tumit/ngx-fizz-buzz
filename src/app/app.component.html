@@ -1,1 +1,3 @@
-<ngx-fizz-buzz></ngx-fizz-buzz>
+<h1 *ngIf="!result">Component: ngx-fizz-buzz say ?</h1>
+<h1 *ngIf="!!result">Component: ngx-fizz-buzz say {{ result }}!</h1>
+<ngx-fizz-buzz (said)="result = $event"></ngx-fizz-buzz>
