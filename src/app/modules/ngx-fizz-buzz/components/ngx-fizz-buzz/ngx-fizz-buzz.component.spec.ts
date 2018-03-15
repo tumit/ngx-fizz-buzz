@@ -36,4 +36,15 @@ describe('NgxFizzBuzzComponent', () => {
     expect(component.said.emit).toHaveBeenCalledWith('Fizz');
   });
 
+  it('should be "Buzz" when count is 5', () => {
+    // arrange
+    spyOn(component.said, 'emit');
+    component.count.setValue(4);
+    // action
+    component.say();
+    // assert
+    expect(component.said.emit).toHaveBeenCalledWith('Buzz');
+  });
+
+
 });
