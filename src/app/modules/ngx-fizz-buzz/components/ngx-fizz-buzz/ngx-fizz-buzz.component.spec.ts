@@ -39,7 +39,7 @@ describe('NgxFizzBuzzComponent', () => {
   it('should be "Buzz" when count is 5', () => {
     // arrange
     spyOn(component.said, 'emit');
-    component.count.setValue(4);
+    component.count.setValue(5);
     // action
     component.say();
     // assert
